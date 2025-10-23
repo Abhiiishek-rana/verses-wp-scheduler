@@ -1,0 +1,52 @@
+{
+  "name": "whatsapp-outbound-manager",
+  "version": "1.0.0",
+  "description": "Multi-instance WhatsApp bot manager with shared dependencies",
+  "main": "index.js",
+  "scripts": {
+    "start:outbound": "cd outbound && node bot.js",
+    "start:all": "concurrently \"npm run start:outbound\"",
+    "install": "npm install",
+    "dev": "npm run start:all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.4",
+    "@mui/material": "^7.3.4",
+    "@mui/x-data-grid": "^8.14.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "@xenova/transformers": "^2.6.0",
+    "canvas": "^3.2.0",
+    "chokidar": "^3.5.3",
+    "electron": "^38.4.0",
+    "electron-builder": "^26.0.12",
+    "electron-is-dev": "^3.0.1",
+    "lucide-react": "^0.546.0",
+    "moment": "^2.29.4",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "vite": "^7.1.11",
+    "whatsapp-web.js": "^1.23.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "booking",
+    "scheduling",
+    "ai",
+    "multi-instance"
+  ],
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "outbound1",
+    "outbound2"
+  ]
+}

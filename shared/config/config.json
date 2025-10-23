@@ -1,0 +1,39 @@
+{
+  "messages": {
+    "welcome": {
+      "initial": "hi there i am talking from verses can i have your mintue please ?"
+    },
+    "questions": {
+      "askCallTime": "What will be the best time to call you?",
+      "askReason": "Hey, may I know the reason?",
+      "askClarification": "Should I take that as a yes or no?",
+      "askTimeForDate": "Perfect! I see you want to schedule for {date}. What time would work best for you? (e.g., \"2pm\", \"morning\", \"4:30pm\")",
+      "askDateForTime": "Perfect! I see you want to schedule for {time}. Which date would work best for you? (e.g., \"tomorrow\", \"Monday\", \"25th December\")"
+    },
+    "confirmations": {
+      "scheduleConfirm": "Just to confirm, you'd like me to call on {formattedTime} to discuss your educational needs, right?"
+    },
+    "success": {
+      "callScheduled": "Perfect! I've scheduled the call. We'll connect with you at the confirmed time. Thank you!",
+      "immediateCallScheduled": "✅ Perfect! I've scheduled an immediate call for {time}. Our team will contact you shortly. Thank you!",
+      "politeEnd": "No worries, we can connect later. Have a great day!",
+      "thankYou": "Thank you for sharing. We understand. Have a great day!"
+    },
+    "errors": {
+      "clarificationNeeded": "Sorry, I didn't quite understand. Could you please reply with yes or no?",
+      "stillUnclear": "I'm sorry, I still didn't understand. Could you please clearly say yes or no?",
+      "parseError": "Sorry, I didn't quite catch that. Could you please provide both the date and time?",
+      "pastDateTime": "I can't schedule a call for {datetime} as that time has already passed. Let's start fresh - what would be the best time to call you?",
+      "confirmationNeeded": "Sorry, could you please confirm with yes or no?"
+    },
+    "prompts": {
+      "provideDateAndTime": "I'd be happy to schedule a call for you! Could you please provide both the date and time?"
+    },
+    "timeout": {
+      "sessionEnded": "Your session has ended due to inactivity. If you'd like to schedule a call, please start a new conversation. Thank you!"
+    }
+  },
+  "numbers": {
+    "sessionTimeoutDays": 7
+  }
+}

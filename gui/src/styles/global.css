@@ -1,0 +1,304 @@
+/* Global styles for the WhatsApp Bot Manager */
+
+:root {
+  /* Primary Colors - Dark Mode Electric Blue and Purple */
+  --color-primary: #667eea;
+  --color-primary-light: #8a9ff5;
+  --color-primary-dark: #4c63d2;
+  
+  /* Secondary Colors */
+  --color-secondary: #764ba2;
+  --color-secondary-light: #9575cd;
+  --color-secondary-dark: #5e35b1;
+  
+  /* Background Colors */
+  --color-background: #0a0e1a;
+  --color-background-alt: #1a1f3a;
+  --color-paper: #101428;
+  --color-surface: #101428;
+  
+  /* Text Colors */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b3b9d1;
+  --color-text-disabled: #8892b0;
+  
+  /* Semantic Colors */
+  --color-success: #4caf50;
+  --color-success-light: #66bb6a;
+  --color-success-dark: #388e3c;
+  
+  --color-warning: #ff9800;
+  --color-warning-light: #ffb74d;
+  --color-warning-dark: #f57c00;
+  
+  --color-error: #f44336;
+  --color-error-light: #ef5350;
+  --color-error-dark: #d32f2f;
+  
+  --color-info: #2196f3;
+  --color-info-light: #42a5f5;
+  --color-info-dark: #1976d2;
+  
+  /* Shadow Colors */
+  --shadow-primary: rgba(0, 0, 0, 0.3);
+  --shadow-secondary: rgba(0, 0, 0, 0.4);
+  --shadow-hover: rgba(102, 126, 234, 0.2);
+  
+  /* Border Colors */
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.2);
+  --border-dark: rgba(255, 255, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 25%, #101428 75%, #0a0e1a 100%);
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 31, 58, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4c63d2 0%, #5e35b1 100%);
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* QR Code container */
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.8) 0%, rgba(16, 20, 40, 0.9) 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+  backdrop-filter: blur(20px);
+}
+
+.qr-code-container canvas {
+  border-radius: 8px;
+}
+
+/* Status indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-indicator.connected {
+  background: rgba(124, 179, 66, 0.1);
+  color: var(--color-success-dark);
+  border: 1px solid rgba(124, 179, 66, 0.3);
+}
+
+.status-indicator.disconnected {
+  background: rgba(216, 67, 21, 0.1);
+  color: var(--color-error-dark);
+  border: 1px solid rgba(216, 67, 21, 0.3);
+}
+
+.status-indicator.connecting {
+  background: rgba(255, 143, 0, 0.1);
+  color: var(--color-warning-dark);
+  border: 1px solid rgba(255, 143, 0, 0.3);
+}
+
+/* Log container */
+.log-container {
+  max-height: 300px;
+  overflow-y: auto;
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.6) 0%, rgba(16, 20, 40, 0.8) 100%);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.log-entry {
+  margin-bottom: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.log-entry.info {
+  background: rgba(93, 64, 55, 0.1);
+  color: var(--color-info-dark);
+}
+
+.log-entry.success {
+  background: rgba(124, 179, 66, 0.1);
+  color: var(--color-success-dark);
+}
+
+.log-entry.warning {
+  background: rgba(255, 143, 0, 0.1);
+  color: var(--color-warning-dark);
+}
+
+.log-entry.error {
+  background: rgba(216, 67, 21, 0.1);
+  color: var(--color-error-dark);
+}
+
+.log-timestamp {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  min-width: 80px;
+}
+
+/* Form enhancements */
+.form-section {
+  margin-bottom: 24px;
+}
+
+.form-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* Card hover effects */
+.hover-card {
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .qr-code-container {
+    margin: 10px 0;
+    padding: 15px;
+  }
+  
+  .log-container {
+    max-height: 200px;
+  }
+}
+
+/* Enhanced cream and taupe theme */
+@media (prefers-color-scheme: light) {
+  .form-section-title {
+    color: #3E2723;
+  }
+  
+  .log-container {
+    background: rgba(139, 115, 85, 0.08);
+  }
+}
